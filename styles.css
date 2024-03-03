@@ -1,0 +1,208 @@
+body {
+  background-color: #e0f7fa; /* Light blue background color */
+  font-family: 'Comic Sans MS', cursive, sans-serif; /* Cartoon-like font */
+}
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: url('./assets/background.png'); /* Replace with your background image path */
+  background-size: cover;
+  background-position: center;
+  filter: blur(5px); /* Adjust the blur amount as needed */
+  z-index: -1; /* Place the pseudo-element behind the content */
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  z-index: 1; /* Ensure the content is above the blurred background */
+}
+
+.game-panel {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.player-panel {
+  background-color: #6e3255; /* Light blue panel background color */
+  padding: 100px;
+  border-radius: 10px;
+  margin: 10px;
+  text-align: center;
+  height: 400px;
+  width: 400px;
+}
+
+.user-info,
+.bot-info {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.user-info img,
+.bot-info img,
+#userChoiceImg,
+#botChoiceImg {
+  max-width: 200px; /* Limiting the max width to 600px */
+  height: 200px; /* Maintain aspect ratio */
+}
+.choices {
+  position: absolute;
+  top: 70%;
+  left: 30%;  
+  transform: translate(-50%, -50%);/* This property creates space between buttons */
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  margin: 20px;
+  border: 10px;
+  border: black;
+}
+
+.choices button {
+  margin: 30px;
+  padding: 10px;
+  cursor: pointer;
+  background-color: #f7f7f7; /* Blue button background color */
+  border-radius: 100px;
+  
+}
+
+.choices button:hover {
+  background-color: #649196; /* Darker blue on hover */
+}
+
+.result-panel {
+  text-align: center;
+  flex-direction: column;
+  position: absolute;
+  left: 27.3%;
+  top: 17%;
+}
+
+#result {
+  font-size: 24px;
+  margin-bottom: 10px;
+  position: fixed;
+  left: 28.7%;
+}
+
+#userHeart1,#userHeart2,#userHeart3,#botHeart1,#botHeart2,#botHeart3{
+  height: 30px;
+  width: auto;
+}
+#userChoiceImg,#botChoiceImg{
+  border-radius: 30px;
+}
+
+#rhand,#phand,#shand{
+  width: 90px;
+height: auto;
+}
+
+#playAgainBtn {
+  position: fixed;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 4px;
+  transition: filter 250ms;
+  user-select: none;
+  touch-action: manipulation;
+  display: none;
+  top: 70%;
+ }
+ 
+ .shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: hsl(0deg 0% 0% / 0.25);
+  will-change: transform;
+  transform: translateY(2px);
+  transition: transform
+     600ms
+     cubic-bezier(.3, .7, .4, 1);
+ }
+ 
+ .edge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: linear-gradient(
+     to left,
+     hsl(214, 100%, 16%) 0%,
+     hsl(209, 100%, 32%) 8%,
+     hsl(194, 100%, 32%) 92%,
+     hsl(183, 100%, 16%) 100%
+   );
+ }
+ 
+ .front {
+  display: block;
+  position: relative;
+  padding: 12px 27px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  color: white;
+  background: hsl(188, 100%, 47%);
+  will-change: transform;
+  transform: translateY(-4px);
+  transition: transform
+     600ms
+     cubic-bezier(.3, .7, .4, 1);
+ }
+ 
+ button:hover {
+  filter: brightness(110%);
+ }
+ 
+ button:hover .front {
+  transform: translateY(-6px);
+  transition: transform
+     250ms
+     cubic-bezier(.3, .7, .4, 1.5);
+ }
+ 
+ button:active .front {
+  transform: translateY(-2px);
+  transition: transform 34ms;
+ }
+ 
+ button:hover .shadow {
+  transform: translateY(4px);
+  transition: transform
+     250ms
+     cubic-bezier(.3, .7, .4, 1.5);
+ }
+ 
+ button:active .shadow {
+  transform: translateY(1px);
+  transition: transform 34ms;
+ }
+ 
+ button:focus:not(:focus-visible) {
+  outline: none;
+ }
+
+ .vslogo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
